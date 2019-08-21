@@ -586,6 +586,8 @@ int mutt_do_pager(const char *banner, const char *tempfile, PagerFlags do_color,
   if (!info)
     info = &info2;
 
+  info->index_status_window = NULL;
+  info->index_window = NULL;
   info->pager_status_window = MuttPagerBarWindow;
   info->pager_window = MuttPagerWindow;
 
