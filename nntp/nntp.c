@@ -1543,7 +1543,7 @@ static int check_mailbox(struct Mailbox *m)
 
   struct NntpMboxData *mdata = m->mdata;
   struct NntpAccountData *adata = mdata->adata;
-  time_t now = time(NULL);
+  time_t now = mutt_date_epoch();
   int rc = 0;
   void *hc = NULL;
 

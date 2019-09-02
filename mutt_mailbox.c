@@ -141,7 +141,7 @@ int mutt_mailbox_check(struct Mailbox *m_cur, int force)
   if (TAILQ_EMPTY(&NeoMutt->accounts))
     return 0;
 
-  t = time(NULL);
+  t = mutt_date_epoch();
   if (!force && (t - MailboxTime < C_MailCheck))
     return MailboxCount;
 
@@ -377,7 +377,7 @@ void mutt_mailbox_cleanup(const char *path, struct stat *st)
       utimensat(0, buf, ts, 0);
 #else
       ut.actime = st->st_atime;
-      ut.modtime = time(NULL);
+      ut.modtime = mutt_date_epoch();
       utime(path, &ut);
 #endif
     }

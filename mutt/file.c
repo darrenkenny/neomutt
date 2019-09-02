@@ -972,7 +972,7 @@ time_t mutt_file_decrease_mtime(const char *fp, struct stat *st)
   }
 
   mtime = st->st_mtime;
-  if (mtime == time(NULL))
+  if (mtime == mutt_date_epoch())
   {
     mtime -= 1;
     utim.actime = mtime;

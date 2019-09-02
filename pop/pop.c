@@ -896,7 +896,7 @@ static int pop_mbox_check(struct Mailbox *m, int *index_hint)
 
   struct PopAccountData *adata = pop_adata_get(m);
 
-  if ((adata->check_time + C_PopCheckinterval) > time(NULL))
+  if ((adata->check_time + C_PopCheckinterval) > mutt_date_epoch())
     return 0;
 
   pop_logout(m);
